@@ -1,0 +1,10 @@
+<!--pages/rtmproom/roomname/roomname.wxml-->
+<view class='container-box'>
+  <view class='extext'>输入房间名</view>
+  <view class="input-box">
+    <input value="{{roomName}}" maxlength="20" bindinput='bindRoomName' placeholder="输入房间名称" />
+  </view>
+</view>
+<view class='bottom-btn'> 
+  <button type="primary" bindtap="create" hover-class="none">确定创建并进入房间</button>
+</view> 

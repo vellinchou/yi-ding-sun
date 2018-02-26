@@ -1,0 +1,10 @@
+<!--pages/liveroom/roomname/roomname.wxml-->
+<view class='container-box'>
+  <view class='extext'>直播间名称</view>
+  <view class="input-box">
+    <input value="{{roomName}}" maxlength="20" bindinput='bindRoomName' placeholder="请输入直播间名称" />
+  </view>
+</view>
+<view class='bottom-btn'> 
+  <button type="primary" bindtap="create" hover-class="none">开始直播</button>
+</view> 

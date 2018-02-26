@@ -1,0 +1,60 @@
+<view class='container-box'>
+	<view> 
+  <!--
+    role: 表示双人会话的角色，取值'enter'表示加入者，'create'表示创建者
+    roomid: 房间id，role为'enter'时需要传入
+    roomname: 房间名称，role为'create'时需要传入
+    username: 用户昵称，当前用户的昵称
+    event:推流事件
+    config: 一组操作设置项，具体请参考pages/multiroom/room/room.js的实现
+    styles: 设置cameraview的大小，eg:{width: '49vw', height: '65.33vw'}
+    bindnotify: 内部事件通知，具体请参考pages/multiroom/room/room.js的实现
+    -->
+		<cameraview 
+      role="{{role}}"
+      roomid="{{roomid}}" 
+      roomname="{{roomname}}" 
+      username="{{username}}" 
+      event="{{event}}" 
+      config="{{config}}"
+      styles="{{styles}}"
+      operate="{{operate}}"
+      bindnotify="onNotify">
+    </cameraview>
+		<view class="player-box" wx:for="{{members}}" wx:key="userID"> 
+      <view class='poster'></view>   
+      <live-player
+        id="{{item.userID}}"
+        autoplay
+        mode="RTC"
+        wx:if="{{item.accelerateURL}}"
+        object-fit="fillCrop"
+        min-cache="0.1"
+        max-cache="0.3"
+        src="{{item.accelerateURL}}" 
+        debug="{{config.debug}}"
+        background-mute="true"
+        bindstatechange="onPlay">
+        <cover-view class='loading' wx:if="{{item.loading}}">
+            <cover-image src="/pages/Resources/loading_image0.png"></cover-image>
+        </cover-view>
+        <cover-image  class='character' src="/pages/Resources/mask.png"></cover-image>
+        <cover-view class='character' style='padding: 0 5px;'>{{members.userName}}</cover-view>
+      </live-player>  
+    </view> 
+	</view> 
+	<view class="operate">
+		<view class='img-box'>
+			<image src='../../Resources/{{config.camera? "camera" : "camera-gray"}}.png' bindtap="changeCamera"></image>
+		</view>
+		<view class='img-box'>
+			<image src='../../Resources/{{config.beauty? "beauty" : "beauty-dis"}}.png' bindtap="setBeauty"></image>
+		</view>
+		<view class='img-box'>
+			<image src='../../Resources/{{config.muted ? "mic-dis" : "mic"}}.png'  bindtap="changeMute"></image>
+		</view>
+		<view class='img-box'>
+			<image src='../../Resources/{{config.debug? "log" : "log2"}}.png'  bindtap="showLog"></image>
+		</view>
+	</view>
+</view>

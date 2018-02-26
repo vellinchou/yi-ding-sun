@@ -1,0 +1,25 @@
+<!--pages/localview/localview.wxml-->
+<view class='pusher-container' style="width: {{styles.width}};height: {{styles.height}}">
+  <view class="pusher-box"> 
+    <view class='poster'></view>   
+    <live-pusher
+      id="rtcpusher"
+      autopush
+      mode="RTC"
+      url="{{pushURL}}"
+      aspect="{{config.aspect}}"
+      min-bitrate="{{config.minBitrate}}"
+      max-bitrate="{{config.maxBitrate}}"
+      audio-quality="high"
+      beauty="{{config.beauty}}"
+      muted="{{config.muted}}"
+      waiting-image="https://mc.qcloudimg.com/static/img/daeed8616ac5df256c0591c22a65c4d3/pause_publish.jpg"
+      background-mute="true"
+      debug="{{config.debug}}"
+      bindstatechange="onPush">
+      <cover-image  class='character' src="/pages/Resources/mask.png"></cover-image>
+      <cover-view class='character' style='padding: 0 5px;'>我（{{username}}）</cover-view>
+    </live-pusher>  
+  </view> 
+</view>
+

@@ -1,0 +1,21 @@
+<!--pages/doubleroom/roomlist/roomlist.wxml-->
+<view class='container-box'>
+  <view class='extext' wx-if="{{roomList}}">选择会话点击进入</view>
+  <view class='extext no-room' wx-if="{{!roomList}}">
+    <view>当前没有进行中的会话</view>
+    <view>请点击新建会话</view>
+  </view>
+  <!--
+  <view wx:for="{{roomList}}" wx:key="item.roomID" class="list-box" bindtap="goRoom" data-roomid="{{item.roomID}}" data-roomname="{{item.roomName}}" data-num="{{item.pushers.length}}"> 
+   -->
+   <view class="list-box" bindtap="goRoom" data-roomid="{{roomList.roomID}}" data-roomname="{{roomList.roomName}}" data-num="{{roomList.pushers.length}}">
+    <view>
+        <view>会话名: {{roomList.roomName}}</view>
+        <view>会话ID: {{roomList.roomID}}</view>
+        <view>在线人数: {{roomList.pushers.length}}人</view> 
+    </view>
+  </view> 
+</view>
+<view class='bottom-btn'> 
+  <button type="primary" bindtap="create" hover-class="none">新建会话</button>
+</view> 

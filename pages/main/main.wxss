@@ -1,0 +1,82 @@
+/* pages/main/main.wxss */
+.mainUI {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(http://119.27.167.62/wp-content/uploads/2018/01/rb-bg-1.png);
+  background-color: rgb(246,213,84);
+  background-repeat:no-repeat;
+  background-size: contain;
+  background-position-y: 50px;
+}
+.tips {
+  color: #ffffff;
+  font-size: 12px;
+  text-align: center;
+  padding: 42rpx 0 22rpx;
+}
+.guide-box {
+  text-align: center;
+  position: relative;    
+  top: 90vw;
+}
+.guide {
+  display: inline-block;
+  width: 30vw;
+  height: 30vw;
+  background-color: rgba(0, 0, 0, 0.55);
+  text-align: center;
+  margin: 1.5px;
+  vertical-align: top;
+}
+.guide-nomore {
+  display: inline-block;
+  width: 30vw;
+  height: 30vw;
+  line-height: 30px ;
+  text-align: center;
+  margin: 1.5px;
+  vertical-align: top;
+
+  border-radius: 50% ;
+  box-shadow: 1px 1px 1px 4px #fb9870 ;
+}
+.guide-nomore-bk {
+  background-color: #f87c4b ;
+}
+.guide_icon {
+  display: block;
+  width: 36px; 
+  height: 36px; 
+  margin:20px auto 0;
+  
+}
+.guide_label {
+  display: block;
+  margin-top: 12px;
+  color: #CFE4FF;
+  font-size: 14px;
+}
+.guide_nomore_label {
+  margin-top: 12vw;
+  color: rgba(256, 256, 256, 0.6);
+}
+
+.guide_nomore_text {
+  font-size: 20px ;
+}
+.logo-box {
+  position: absolute;
+  width: 100vw;
+  bottom: 36rpx;
+  text-align: center;
+}
+.logo {
+  width: 160rpx;
+  height: 44rpx;
+}
+
+.font-20 {
+  font-size: 20px ;
+  margin: 12px auto ;
+}

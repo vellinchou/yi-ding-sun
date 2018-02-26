@@ -1,0 +1,29 @@
+.container-box {
+  background-color: #333;
+  height: 100vh;
+}
+.list-box {
+  background-color: #262626;
+  color: #fff;
+  width: 90vw;
+  margin: 3vw;
+  padding: 2vw;
+}
+.extext {
+  font-size: 13px;
+  color: #999;
+  padding: 2vw 5vw;
+}
+.no-room {
+  padding-top: 30vh;
+  text-align: center;
+}
+.bottom-btn {
+  position: fixed;
+  width: 90vw;
+  left: 5vw;
+  bottom: 3vh;
+}
+.bottom-btn button {
+   background-color: #1da664;
+ }

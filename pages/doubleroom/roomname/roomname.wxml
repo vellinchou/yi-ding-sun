@@ -1,0 +1,11 @@
+<!--pages/doubleroom/roomname/roomname.wxml-->
+<view class='container-box'>
+  <view class='extext'>会话名称</view>
+  <view class="input-box">
+    <input value="{{roomName}}" maxlength="20" bindinput='bindRoomName' placeholder="请输入会话名称" />
+  </view>
+</view>
+<view class='bottom-btn'> 
+  <button type="primary" bindtap="create" hover-class="none">创建并自动加入该会话</button>
+</view> 
+

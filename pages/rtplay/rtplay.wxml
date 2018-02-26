@@ -1,0 +1,31 @@
+<!--pages/rtplay/rtplay.wxml-->
+<view style="width:100%;height: 100%; background-color: black;">
+   <view hidden="{{playing && !fullScreen}}" style="width:100%; height:75rpx;" >
+    <image style="width: 60rpx; height: 60rpx;display:inline-block; position:absolute;left:10px;margin-top:15rpx;" src="../Resources/QR_code.png" bindtap='onScanQR'></image>
+    <input style="background-color: #ccc; width:550rpx; border-radius:8rpx;height:60rpx;display:inline-block; position:absolute;left:50px;margin-top:15rpx;" placeholder-style="font-size:30rpx; padding:10rpx" placeholder-style="font-size:30rpx;" placeholder="请输入播放地址或者扫二维码进行输入" focus="{{focus}}" bindtap='onInputTap' value="{{playUrl}}"></input>
+    <image style="width: 60rpx; height: 60rpx;display:inline-block; position:absolute;right:10px;margin-top:15rpx;" src="../Resources/new.png" bindtap='onNewUrlClick'></image>
+  </view> 
+  <view style="width:100%;height:{{playing?'100%':'calc(100% - 75rpx)'}};position:relative;">
+    <live-player
+      style="width:100%;height:100%;position:absolute;"
+      id="video-livePlayer"
+      mode="RTC"
+      orientation="{{orientation}}"
+      muted="{{muted}}"
+      background-mute="{{backgroundMute}}"
+      object-fit="{{objectFit}}"
+      src="{{playUrl}}" 
+      debug="{{debug}}"
+      bindstatechange="onPlayEvent"
+      bindfullscreenchange="onFullScreenChange">
+
+      <cover-view style="width:100%; height: 60rpx; position:absolute;bottom:0px;" >
+        <cover-image class="button_bottom" src="../Resources/{{playing?'suspend':'start'}}.png" bindtap='onPlayClick'></cover-image>
+        <cover-image class="button_bottom" src="../Resources/{{orientation == 'vertical'?'portrait':'landscape'}}.png" bindtap='onOrientationClick'></cover-image>
+        <cover-image class="button_bottom" src="../Resources/{{objectFit == 'contain'?'fill':'adjust'}}.png" bindtap='onObjectfitClick'></cover-image>
+        <cover-image class="button_bottom" src="../Resources/{{debug?'log2':'log'}}.png" bindtap='onLogClick'></cover-image>
+        <cover-image class="button_bottom" src="../Resources/{{muted?'mute_press':'mute'}}.png" bindtap='onMuteClick'></cover-image>
+      </cover-view> 
+    </live-player> 
+  </view>
+</view>

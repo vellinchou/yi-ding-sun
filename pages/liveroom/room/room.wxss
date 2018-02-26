@@ -1,0 +1,96 @@
+/* pages/liveroom/room/room.wxss */
+.container-box {
+  background-color: #333;
+  height: 100vh;
+}
+#video-box {
+  font-size: 0;
+}
+.list-box {
+	position: relative; 
+	display: inline-block; 
+	overflow: hidden;
+	width: 100vw;
+	height: calc(100vh - 6vw - 1.4rem); 
+	text-align: center;
+  vertical-align: top;
+}
+
+.poster {
+	position: absolute;    
+	width: 100vw;
+	height: calc(100vh - 6vw - 1.4rem); 
+	background-image: url(https://mc.qcloudimg.com/static/img/2215c303b9a0d38ac4697708cd250dbc/people%402x.png);
+	background-repeat: no-repeat;
+	background-position:center;
+	background-color: #000;  
+}
+live-pusher {
+  width: 100vw;
+  height: calc(100vh - 6vw - 1.4rem); 
+
+}
+live-player {
+  width: 100vw;
+  height: calc(100vh - 6vw - 1.4rem); 
+}
+.character {
+  position: absolute;
+  left: 0;
+  bottom: 10vh;
+  z-index: 1000;
+  font-size: 16px;
+  color: #999;
+  width: 100vw;
+  height: 10vw;
+  line-height: 10vw;
+  text-align: left;
+}
+
+
+.img-box {
+  position: relative;
+  display:inline-block;
+  height: 10vh;
+  width: 25vw;
+  vertical-align: middle;
+}
+.img-box cover-image {
+  position: absolute;
+  width: 8vh;
+  height: 8vh;
+  top: 1vh; 
+  left: calc(12.5vw - 4vh);
+}
+.operate {
+   position: absolute; 
+   bottom: 0; 
+}
+.comment-box {
+  position: relative;
+  width: 100vw;
+}
+.comment {
+  position: absolute;
+  bottom: 10vh;
+  z-index: 1000;
+  /* background-color: #262626;  */
+  width: 100vw;
+  height: 50vh;
+  font-size: 13px; 
+  text-align: left;
+
+}
+.comment .comment-detail {
+  margin: 5px 20px;
+  color: #fff;
+}
+.comment .comment-detail cover-view {
+  white-space: pre-wrap;
+}
+.comment-input {
+  width: 90vw; 
+  background-color: #4a4a4a;
+  color: #acacac;
+  padding: 3vw 5vw;
+}

@@ -1,0 +1,17 @@
+/**pages/wawaolayer/wawaroomlist/wawaroomlist.wxss**/
+.container-box {
+  background-color: #333;
+  height: 100vh;
+}
+.list-box {
+  background-color: #262626;
+  color: #fff;
+  width: 90vw;
+  margin: 3vw;
+  padding: 2vw;
+}
+.extext {
+  font-size: 13px;
+  color: #999;
+  padding: 2vw 5vw;
+}

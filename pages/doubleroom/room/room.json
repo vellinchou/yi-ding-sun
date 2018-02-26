@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "呼叫坐席",
+  "usingComponents": {
+    "cameraview": "/pages/cameraview/cameraview"
+  }
+}

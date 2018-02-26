@@ -1,0 +1,83 @@
+<!--pages/wawaplayer/wawaroom/wawaroom.wxml-->
+<view style="width:100%;height: 100%; background-color: black;position:relative">
+  <audio src="http://audio.xmcdn.com/group15/M02/1D/98/wKgDaFV4ZB6zazosAA3YX_nc7HE547.m4a" id="myAudio" loop></audio>
+  <live-player 
+    class="{{showFront?'player_show':'player_hide'}}" 
+    id="video-livePlayer" 
+    mode="{{mode}}"
+    minCache="{{minCache}}"
+    maxCache="{{maxCache}}"
+    src="{{playUrl.front}}" 
+    orientation="horizontal" 
+    object-fit="fillCrop" 
+    autoplay
+    debug="{{debugable}}"
+    muted="{{mute}}"
+    bindstatechange="onFrontPlayEvent"
+    bindfullscreenchange="onFullScreenChange">
+    <cover-image 
+      style="width: 60rpx; height: 60rpx;margin-bottom:15rpx;margin-left:calc(100% - 75rpx);position:absolute;bottom:0px; "
+      src="../../Resources/{{debugable?'log2':'log'}}.png" 
+      bindtap='onLog'>
+    </cover-image>
+    <cover-image 
+      class="button_camera" 
+      src="../../Resources/{{showFront?'camera_111':'camera_222'}}.png" 
+      bindtap='onSwitchCamera'>
+    </cover-image>
+    <cover-image 
+      class="{{gameStart?'button_begin_hide':'button_begin'}}" 
+      src="../../Resources/wawa_start.png" 
+      bindtap='onBgein'>
+    </cover-image> 
+    <canvas 
+      class="{{gameStart?'canvas_control':'canvas_control_hide'}}" 
+      canvas-id="controlCanvas" 
+      bindtouchstart='onControlBegin' 
+      bindtouchend='onControlEnd'>
+    </canvas>
+    <cover-view class="{{showTimer?'timer':'timer_hide'}}">
+      当前游戏剩余{{left_time}}秒
+    </cover-view>
+  </live-player>
+
+  <live-player 
+    class="{{showFront?'player_hide':'player_show'}}" 
+    id="video-livePlayer-side" 
+    mode="{{mode}}" 
+    minCache="{{minCache}}"
+    maxCache="{{maxCache}}"
+    src="{{playUrl.side}}" 
+    orientation="horizontal" 
+    object-fit="fillCrop" 
+    autoplay
+    debug="{{debugable}}"
+    muted="{{mute}}"
+    bindstatechange="onSidePlayEvent"
+    bindfullscreenchange="onFullScreenChange">
+    <cover-image 
+      style="width: 60rpx; height: 60rpx;margin-bottom:15rpx;margin-left:calc(100% - 75rpx);position:absolute;bottom:0px; "
+      src="../../Resources/{{debugable?'log2':'log'}}.png" 
+      bindtap='onLog'>
+    </cover-image>
+    <cover-image 
+      class="button_camera" 
+      src="../../Resources/{{showFront?'camera_111':'camera_222'}}.png" 
+      bindtap='onSwitchCamera'>
+    </cover-image>
+    <cover-image 
+      class="{{gameStart?'button_begin_hide':'button_begin'}}" 
+      src="../../Resources/wawa_start.png" 
+      bindtap='onBgein'>
+    </cover-image> 
+    <canvas 
+      class="{{gameStart?'canvas_control':'canvas_control_hide'}}" 
+      canvas-id="controlCanvas-side" 
+      bindtouchstart='onControlBegin' 
+      bindtouchend='onControlEnd'>
+    </canvas>
+    <cover-view class="{{showTimer?'timer':'timer_hide'}}">
+      当前游戏剩余{{left_time}}秒
+    </cover-view>
+  </live-player>
+</view>

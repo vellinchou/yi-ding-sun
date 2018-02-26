@@ -1,0 +1,29 @@
+<!--pages/main/main.wxml-->
+ <!-- <view class="mainUI"  style="background-image: url(/pages/Resources/bg.png);">  -->
+ <view class="mainUI"> 
+  <view class='tips'>
+    <text class='font-20'>车险视频报案查勘</text>
+  </view>
+  <view class='guide-box'> 
+    <!--
+    <view wx:for="{{entryInfos}}" wx:key="*this" id="{{index}}" class='guide' bindtap='onEntryTap'>
+      <block>
+        <image class="guide_icon" src="{{item.icon}}" mode="aspectFit" />
+        <view class="guide_label">{{item.title}}</view>
+      </block>
+    </view>
+    -->
+    <view class='guide-nomore guide-nomore-bk' bindtap='onEntryDouble'>
+      <view class="guide_nomore_label">
+        <view class="guide_nomore_text">视频报案</view>
+      </view>
+    </view>
+    <!-- 
+    <view class='guide-nomore'></view> -->
+  </view>
+  <view class='logo-box'>
+  <!--
+    <image class='logo' src='../Resources/logo.png'></image>
+  -->
+  </view>
+</view>

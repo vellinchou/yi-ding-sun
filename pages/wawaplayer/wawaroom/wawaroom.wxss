@@ -1,0 +1,65 @@
+/* pages/wawaolayer/wawaroom/wawaroom.wxss */
+.timer
+{
+  width: 100%;
+  height: 80rpx;
+  color: #F00;
+}
+
+.timer_hide
+{
+  display: none;
+}
+
+.player_show
+{
+  width: 100%;
+  height: 100%; 
+  position:absolute;
+}
+
+.player_hide
+{
+  display: none;
+}
+
+.button_begin
+{
+  width: 200rpx; 
+  height: 100rpx; 
+  margin-left:calc(50% - 100rpx); 
+  margin-bottom:40rpx;
+  display:inline-block;
+  position:absolute;
+  bottom:0px;
+}
+
+.button_begin_hide
+{
+  display:none;
+}
+
+.canvas_control
+{
+  width: 100%; 
+  height: 400rpx; 
+  margin-bottom:40rpx;
+  display:inline-flex;
+  position:absolute;
+  bottom:0px;
+}
+
+.canvas_control_hide
+{
+  display:none;
+}
+
+.button_camera
+{
+  width: 120rpx; 
+  height: 120rpx; 
+  margin-left:calc(100% - 100% / 6); 
+  margin-top:60rpx;
+  display:inline-block;
+  position:absolute;
+}

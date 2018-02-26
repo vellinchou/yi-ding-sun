@@ -1,0 +1,74 @@
+<!--pages/liveroom/room/room.wxml-->
+<view class='container-box'>
+	<view id='video-box'> 
+		<view class="list-box"> 
+			<view class='poster'></view>    
+			<live-pusher
+        wx:if="{{pushURL}}"
+				id="pusher"
+				mode="HD"
+				autopush
+				url="{{pushURL}}"
+				beauty="{{liveData.beauty}}"
+				muted="{{liveData.mute}}"
+				waiting-image="https://mc.qcloudimg.com/static/img/daeed8616ac5df256c0591c22a65c4d3/pause_publish.jpg"
+				debug="{{liveData.debug}}"
+				bindstatechange="onPush">
+        <cover-view class='comment' style='display: {{commentshow ? "block" : "none"}}'>      
+          <cover-view>
+            <cover-view class='comment-detail' wx:for="{{comment}}">
+              <cover-view>{{item.name}} {{item.time}}</cover-view>
+              <cover-view>{{item.content}}</cover-view>
+            </cover-view>
+          </cover-view>
+        </cover-view>
+        <cover-view class="operate">
+          <cover-view class='img-box'>
+            <cover-image src='../../Resources/{{liveData.camera? "camera" : "camera-gray"}}.png' bindtap="changeCamera"></cover-image>
+          </cover-view>
+          <cover-view class='img-box'>
+            <cover-image src='../../Resources/{{liveData.beauty? "beauty" : "beauty-dis"}}.png' bindtap="setBeauty"></cover-image>
+          </cover-view>
+          <cover-view class='img-box'>
+            <cover-image src='../../Resources/{{liveData.mute? "mic-dis" : "mic"}}.png'  bindtap="changeMute"></cover-image>
+          </cover-view>
+          <cover-view class='img-box'>
+            <cover-image src='../../Resources/{{liveData.debug? "log" : "log2"}}.png'  bindtap="showLog"></cover-image>
+          </cover-view>
+        </cover-view> 
+			</live-pusher>  
+      <live-player
+          wx:if="{{!pushURL && playURL}}"
+					id="player"
+					mode="live"
+					object-fit="fillCrop"
+					src="{{playURL}}" 
+          min-cache="1"
+          max-cache="5"
+					debug="{{liveData.debug}}"
+					background-mute="true"
+          catchtouchstart="touchstart" 
+          catchtouchmove="touchmove"
+					autoplay>
+          <cover-view class='comment' catchtouchstart="touchstart" catchtouchmove="touchmove"  style='display: {{commentshow ? "block" : "none"}}'>      
+            <cover-view>
+              <cover-view class='comment-detail' wx:for="{{comment}}">
+                <cover-view>{{item.name}} {{item.time}}</cover-view>
+                <cover-view>{{item.content}}</cover-view>
+              </cover-view>
+            </cover-view>
+          </cover-view>
+          <cover-view class="operate">
+            <cover-view class='img-box'>
+              <cover-image src='../../Resources/{{liveData.debug? "log" : "log2"}}.png'  bindtap="showLog"></cover-image>
+            </cover-view>
+          </cover-view> 
+			</live-player>
+		</view> 
+	</view> 
+  <view class='comment-box'>
+    <view class='comment-input'>
+      <input value="{{myComment}}" maxlength="30" bindinput='bindMyComment' placeholder="输入文字内容" confirm-type="send" bindconfirm="sendComment" />
+    </view>
+  </view>
+</view>

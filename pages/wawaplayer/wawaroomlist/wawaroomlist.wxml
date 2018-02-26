@@ -1,0 +1,10 @@
+<!--pages/wawaplayer/wawaroomlist/wawaroomlist.wxml-->
+<view class='container-box'>
+  <view class='extext' wx-if="{{wawaroomList.length}}">选择抓娃娃房间点击进入</view>
+  <view wx:for="{{wawaroomList}}" class="list-box" bindtap="enterRoom" data-id="{{item.id}}" data-sdkappid="{{item.sdkappid}}">
+    <view>
+        <view>房间名: 抓娃娃测试房间{{index+1}}</view>
+        <view>房间ID: {{item.id}}</view>
+    </view>
+  </view> 
+</view> 

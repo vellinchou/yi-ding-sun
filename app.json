@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/main/main",
+    "pages/push/push",
+    "pages/play/play",
+    "pages/vodplay/vodplay",
+    "pages/rtplay/rtplay",
+    "pages/multiroom/room/room",
+    "pages/multiroom/roomlist/roomlist",
+    "pages/multiroom/roomname/roomname",
+    "pages/doubleroom/roomlist/roomlist",
+    "pages/doubleroom/room/room",
+    "pages/doubleroom/roomname/roomname",
+    "pages/liveroom/room/room",
+    "pages/liveroom/roomlist/roomlist",
+    "pages/liveroom/roomname/roomname",
+    "pages/wawaplayer/wawaroomlist/wawaroomlist",
+    "pages/wawaplayer/wawaroom/wawaroom"
+  ],
+  "networkTimeout": {
+    "request": 60000
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "尼罗河易定损",
+    "navigationBarTextStyle": "#fff"
+  }
+}

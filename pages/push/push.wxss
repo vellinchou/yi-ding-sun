@@ -1,0 +1,10 @@
+/* pages/push/push.wxss */
+
+.button_bottom
+{
+  width: 60rpx; 
+  height: 60rpx; 
+  margin-left:calc(100% / 16 - 30rpx); 
+  margin-right:calc(100% / 16 - 30rpx);
+  display:inline-block;
+}
