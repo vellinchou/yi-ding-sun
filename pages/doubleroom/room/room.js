@@ -20,8 +20,11 @@ Page({
       debug: false    //是否显示log
     },                      
     styles: {         //设置cameraview的大小
-      width: '49vw',
-      height: '65.33vw'
+      width: '30vw',
+      height: '30vh',
+      position: 'relative',
+      zindex: '1',
+      mleft:'70vw'
     },
     event: 0,       // 推流事件透传
     member: {},     //双人对端成员信息

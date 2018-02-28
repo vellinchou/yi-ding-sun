@@ -10,15 +10,17 @@
   width: 25vw;
   vertical-align: middle;
 }
-.img-box image {
+.img-box cover-image {
   position: absolute;
   width: 8vh;
   height: 8vh;
-  top: 1vh; 
   left: calc(12.5vw - 4vh);
 }
 .operate {
-  margin-top: 2vw;
+  position:fixed;
+  margin-top: 60vh;
+  bottom:0;
+  z-index: 1;
 }
 .comment-box {
   position: relative;
@@ -46,15 +48,15 @@
   padding: 3vw 5vw;
 }
 .player-box {
-	position: relative; 
+	position: absolute; 
 	display: inline-block; 
 	overflow: hidden;
-	width: 49vw;
-	height: 65.33vw; 
+	width: 100vw;
+	height: 100vh; 
 	text-align: center;
-  margin-bottom: 2vw;
-  margin-left: 2vw;
   vertical-align: top;
+  right:0;
+  z-index: 0;
 }
 .poster {
 	position: absolute;  

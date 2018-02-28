@@ -101,7 +101,6 @@ Page({
           });
           return;
         } else {
-
           var url = '../doubleroom/room/room?roomID=' + self.data.room.roomID + '&roomName=' + self.data.room.roomName + '&userName=' + self.data.room.userName;
           console.log(url)
           wx.navigateTo({ url: url });

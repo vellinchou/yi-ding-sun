@@ -1,5 +1,5 @@
 <!--pages/localview/localview.wxml-->
-<view class='pusher-container' style="width: {{styles.width}};height: {{styles.height}}">
+<view class='pusher-container' style="width: {{styles.width}};height: {{styles.height}};position: {{styles.position}};z-index:{{styles.zindex}};margin-left:{{styles.mleft}};">
   <view class="pusher-box"> 
     <view class='poster'></view>   
     <live-pusher
