@@ -2,8 +2,9 @@
 .pusher-container {
    display: inline-block;  
 }
+
 .pusher-box {
-	position: relative; 
+	position: relative;
 	display: inline-block; 
 	overflow: hidden;
   width: 100%;

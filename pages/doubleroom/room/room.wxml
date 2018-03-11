@@ -11,7 +11,9 @@
     styles: 设置cameraview的大小，eg:{width: '49vw', height: '65.33vw'}
     bindnotify: 内部事件通知，具体请参考pages/doubleroom/room/room.js的实现
     -->
-    <cameraview
+
+
+      <cameraview
       role="{{role}}"
       roomid="{{roomid}}" 
       roomname="{{roomname}}" 
@@ -22,10 +24,12 @@
       styles="{{styles}}"
       bindnotify="onNotify">
     </cameraview>
+   
     <view class="player-box"> 
       <view class='poster'></view>   
       <live-player
         id="rtcplayer"
+        class="{{liveshow}}"
         autoplay
         mode="RTC"
         wx:if="{{member.accelerateURL}}"
@@ -37,26 +41,40 @@
         background-mute="true"
         bindstatechange="onPlay">
         <view class='loading' wx:if="{{member.loading}}">
-            <image src="/pages/Resources/loading_image0.png"></image>
-        </view>
-        <image  class='character' src="/pages/Resources/mask.png"></image>
-        <view class='character' style='padding: 0 5px;'>{{member.userName}}</view>
+              <image src="/pages/Resources/loading_image0.png"></image>
+          </view>
+          <image  class='character' src="/pages/Resources/mask.png"></image>
+          <view class='character' style='padding: 0 5px;'>{{member.userName}}                      </view>
+
+        <cover-view class="operate">
+          <cover-view class='img-box'>
+            <cover-image src='../../Resources/{{config.camera? "camera" : "camera-gray"}}.png' bindtap="changeCamera"></cover-image>
+          </cover-view>
+          <cover-view class='img-box'>
+            <cover-image src='../../Resources/{{config.beauty? "beauty" : "beauty-dis"}}.png' bindtap="setBeauty"></cover-image>
+          </cover-view>
+          <cover-view class='img-box'>
+            <cover-image src='../../Resources/{{config.muted? "mic-dis" : "mic"}}.png'  bindtap="changeMute"></cover-image>
+          </cover-view>
+          <cover-view class='img-box'>
+            <cover-image src='../../Resources/{{config.debug? "log" : "log2"}}.png'  bindtap="showLog"></cover-image>
+          </cover-view>
+        </cover-view>
       </live-player> 
-      
-      <cover-view class="operate">
-        <cover-view class='img-box'>
-          <cover-image src='../../Resources/{{config.camera? "camera" : "camera-gray"}}.png' bindtap="changeCamera"></cover-image>
+       <cover-view class="operate" wx:if='{{operateshow}}'>
+          <cover-view class='img-box' style='background-color:{{bgc}}'>
+            <cover-image src='../../Resources/{{config.camera? "camera" : "camera-gray"}}.png' bindtap="changeCamera"></cover-image>
+          </cover-view>
+          <cover-view class='img-box' style='background-color:{{bgc}}'>
+            <cover-image src='../../Resources/{{config.beauty? "beauty" : "beauty-dis"}}.png' bindtap="setBeauty"></cover-image>
+          </cover-view>
+          <cover-view class='img-box' style='background-color:{{bgc}}'>
+            <cover-image src='../../Resources/{{config.muted? "mic-dis" : "mic"}}.png'  bindtap="changeMute"></cover-image>
+          </cover-view>
+          <cover-view class='img-box' style='background-color:{{bgc}}'>
+            <cover-image src='../../Resources/{{config.debug? "log" : "log2"}}.png'  bindtap="showLog"></cover-image>
+          </cover-view>
         </cover-view>
-        <cover-view class='img-box'>
-          <cover-image src='../../Resources/{{config.beauty? "beauty" : "beauty-dis"}}.png' bindtap="setBeauty"></cover-image>
-        </cover-view>
-        <cover-view class='img-box'>
-          <cover-image src='../../Resources/{{config.muted? "mic-dis" : "mic"}}.png'  bindtap="changeMute"></cover-image>
-        </cover-view>
-        <cover-view class='img-box'>
-          <cover-image src='../../Resources/{{config.debug? "log" : "log2"}}.png'  bindtap="showLog"></cover-image>
-        </cover-view>
-      </cover-view> 
     </view> 
   </view>
   <!-- <view class='comment-box'>

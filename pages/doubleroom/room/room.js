@@ -23,17 +23,18 @@ Page({
       width: '30vw',
       height: '30vh',
       position: 'relative',
-      zindex: '1',
-      mleft:'70vw'
+      zindex: 99999,
+      mleft:'70vw',
+      operateshow: true,  //摄像头操作条
     },
     event: 0,       // 推流事件透传
     member: {},     //双人对端成员信息
-
     inputMsg: '',     // input信息
     comment: [],      // 评论区信息
-
+    liveshow: true,    //坐席是否显示
     toview: '',     // 滚动条位置
     isShow: false,  // 是否显示页面
+    bgc:''
   },
   /**
    * 通知事件
@@ -189,10 +190,38 @@ Page({
     this.setData({ inputMsg: '' });
   },
   changeCamera: function() {
-    this.data.config.camera = !this.data.config.camera;
-    this.setData({
-      config: this.data.config
-    });
+    this.data.config.camera = !this.data.config.camera; 
+    if (this.data.config.camera) {
+      //前置摄像头
+      this.setData({
+        operateshow: false,
+        config: this.data.config,
+        bgc:'',
+        styles: {         //设置cameraview的大小
+          width: '30vw',
+          height: '30vh',
+          position: 'relative',
+          zindex: 99999,
+          mleft: '70vw'
+        },
+        liveshow: 'show'
+      });
+    } else {
+      //后置摄像头
+      this.setData({
+        config: this.data.config,
+        operateshow: true,        
+        bgc:'black',
+        styles: {         //设置cameraview的大小
+          width: '100vw',          
+          height: '90vh',
+          position: 'relative',
+          zindex: 0,
+          mleft: '0'
+        },
+        liveshow: 'hide'
+      });
+    }
   },
   setBeauty: function () {
     this.data.config.beauty = (this.data.config.beauty == 0 ? 5 : 0);
