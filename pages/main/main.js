@@ -25,7 +25,9 @@ Page({
     room: {},	// 获取到的当前房间
     isGetLoginInfo: false,  // 是否已经获取登录信息
     firstshow: true,// 第一次显示页面
-    tapTime: ''		// 防止两次点击操作间隔太快
+    tapTime: '',		// 防止两次点击操作间隔太快
+    numberhidden:true,
+    vehicleNumber:''
   },
 
 	/**
@@ -101,8 +103,8 @@ Page({
           });
           return;
         } else {
-          var url = '../doubleroom/room/room?roomID=' + self.data.room.roomID + '&roomName=' + self.data.room.roomName + '&userName=' + self.data.room.userName;
-          console.log(url)
+          var url = '../doubleroom/room/room?roomID=' + self.data.room.roomID + '&roomName=' + self.data.room.roomName + '&userName=' + self.data.room.userName + '&vehicleNumber=' + self.data.vehicleNumber;
+          console.log(url);
           wx.navigateTo({ url: url });
           wx.showToast({
             title: '进入房间',
@@ -149,9 +151,38 @@ Page({
       });
     }
   },
-
-  // 点击视频报案
-  onEntryDouble: function(e) {
+    //取消按钮  
+  cancel: function() {
+    this.setData({
+      numberhidden: true  
+    });
+  },  
+  //获取车牌号
+  getvehicleNumber:function(e) {
+    var num = e.detail.value;
+    this.setData({
+      vehicleNumber:num
+    });
+  },
+    //确认  
+  confirm: function() {
+    this.setData({
+      numberhidden: true  
+    });
+    //车牌号验证
+    var result = false;
+    if (this.data.vehicleNumber.length == 7) {
+      var express = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-Z0-9]{4}[A-Z0-9挂学警港澳]{1}$/;
+      result = express.test(this.data.vehicleNumber);
+    }
+    if (!result){
+      wx.showToast({
+        title: '车牌号有误',
+        icon: 'loading',
+        duration: 1000
+      })
+      return;
+    }
     if (this.data.canShow) {
       // if(1) {
       // 防止两次点击操作间隔太快
@@ -166,8 +197,7 @@ Page({
       // });
       // this.setData({ 'tapTime': nowTime });
 
-      this.goRoom()
-
+      this.goRoom();
     } else {
       wx.showModal({
         title: '提示',
@@ -175,6 +205,12 @@ Page({
         showCancel: false
       });
     }
+  },
+  // 点击视频报案
+  onEntryDouble: function(e) {
+    this.setData({
+      numberhidden: !this.data.numberhidden
+    });
   },
 
   /**

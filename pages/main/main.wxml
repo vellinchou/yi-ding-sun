@@ -18,6 +18,11 @@
         <view class="guide_nomore_text">视频报案</view>
       </view>
     </view>
+    
+    <modal hidden="{{numberhidden}}" title="请输入车牌号" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">  
+        <input id='carnum' type='text'placeholder="请输入车牌号" auto-focus bindinput='getvehicleNumber'/>
+    </modal>  
+
     <!-- 
     <view class='guide-nomore'></view> -->
   </view>

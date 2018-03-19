@@ -246,6 +246,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //车牌号 
+    console.log(options.vehicleNumber);
     console.log('room.js onLoad');
     var time = new Date();
     time = time.getHours() + ':' + time.getMinutes() + ':' + time.getSeconds();
